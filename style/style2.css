@@ -156,7 +156,7 @@ p {
   /* text color of the navbar brand */
 }
 
-.navbar-nav {
+.navbar-nav, .nav-link {
   text-align: right;
 }
 
@@ -205,33 +205,6 @@ p {
 {
   font-size: 20px;
   font-family: 'Courgette', cursive;
-}
-
-#topBtn {
-  display: none;
-  /* Hidden by default */
-  position: fixed;
-  /* Fixed/sticky position */
-  bottom: 20px;
-  /* Place the button at the bottom of the page */
-  right: 20px;
-  /* Place the button 30px from the right */
-  z-index: 99;
-  /* Make sure it does not overlap other elements on the page */
-  border-color: white;
-  /* White borders */
-  outline-color: rgb(215, 5, 5);
-  /* Remove outline */
-  background-color: #D4A59A;
-  /* Set a background color */
-  color: #5C2018;
-  /* Text color */
-  cursor: pointer;
-  /* Add a hover effect */
-  padding: 3px;
-  /* Some padding */
-  border-radius: 10px;
-  /* Rounded corners */
 }
 
 #quangBtn {

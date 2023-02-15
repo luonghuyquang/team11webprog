@@ -21,7 +21,7 @@
 
   <!--Local CSS files to be merged together-->
   <link rel="stylesheet" href="../style/style2.css">
-  <link rel="stylesheet" href="..\style\style.css">
+  <link rel="stylesheet" href="../style/style.css">
 
   <!--go to top button-->
   <script>

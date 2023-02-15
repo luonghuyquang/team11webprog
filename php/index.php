@@ -99,7 +99,7 @@ include "header.php" ?>
               </p>
             </div>
             <div>
-              <a href="menu.html">
+              <a href="menu.php">
                 <button type="button" class="btn11">View Menu</button>
               </a>
             </div>
