@@ -1,0 +1,341 @@
+body {
+    margin: auto;
+    background-color: #D4A59A;
+    font-size: larger;
+}
+
+.nav{
+    background-color: #5C2018 !important;
+}
+
+img {
+    width: 100%;
+    height: 500px;
+    margin: auto;
+    vertical-align: none;
+}
+
+.logo11 {
+    width: 200px;
+    height: 100%;
+}
+
+.item {
+    margin: auto;
+}
+
+.wrapper {
+    position: absolute;
+    width: 49%;
+    height: 100%;
+    display: inline-table;
+}
+
+.content-helper {
+    padding-top: 5%;
+    padding-bottom: 5%;
+    color: black;
+}
+
+.bg-none {
+    background: none;
+}
+
+.footer {
+    color: white;
+    background-color: #5C2018;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.footer .link {
+    color: white;
+}
+
+.btn-social {
+    border-radius: 100%;
+    display: inline-flex;
+    width: 3.25rem;
+    height: 3.25rem;
+    font-size: 1.25rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper iframe {
+    position: absolute;
+    width: 49%;
+    height: 100%;
+    display: inline-table;
+}
+h1 {
+    font-weight: 500;
+    font-size: 55px;
+    font-family: 'Courgette', cursive;
+}
+
+h3 {
+    font-weight: 500;
+    font-size: 40px;
+    font-family: 'Courgette', cursive;
+}
+
+p {
+    font-weight: lighter;
+    font-size: 30px;
+    font-family: 'Courgette', cursive;
+}
+
+.mapouter {
+    position: relative;
+    text-align: center;
+    height: 500px;
+    width: 600px;
+    margin: auto;
+}
+
+.gmap_canvas {
+    overflow: hidden;
+    background: none !important;
+    width: 600px;
+}
+  
+  div.gallery img {
+    width: 100%;
+    height: 200px;
+  }
+  
+  div.desc {
+    padding: 15px;
+    text-align: center;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  .responsive {
+    padding: 4px;
+  }
+
+
+  /*
+  nav bar
+  */
+  @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+
+.navbar {
+  background-color: #5C2018;
+  /* navbar background color */
+  font-size: 24px;
+  /*new font for the menu*/
+  font-size: medium;
+  text-align: right;
+}
+
+.navbar-brand {
+  color: #f7ff03;
+  /* text color of the navbar brand (Name of the restaurant) */
+  font: Arial;
+  font-size: 30px;
+}
+
+.navbar-brand:hover {
+  color: #ffffff;
+  /* text color of the navbar brand */
+}
+
+.navbar-brand.navbar-brand:clicked {
+  color: #ffffff;
+  /* text color of the navbar brand */
+}
+
+.navbar-nav {
+  text-align: right;
+}
+
+.navbar-nav .nav-link {
+  color: #ffffff;
+  /* text color of the navbar links */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 20px;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #f0ce21;
+  /* text color of the navbar links on hover */
+}
+
+.navbar-nav .nav-link.active {
+  color: #f7ff03;
+  /* text color of the active navbar link */
+}
+
+.navbar-toggler {
+  color: #FFFFFF;
+}
+
+.navbar-toggler {
+  border-color: white;
+  /* the dropdown's border color */
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(255, 255, 255, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
+/* dropdown icon color */
+
+.btn11 {
+  background-color: rgb(0, 93, 92);
+  font-size: 20px;
+  font-family: 'Courgette', cursive;
+  padding: 10px;
+  border-radius: 10px;
+  color: white;
+}
+
+.form-label
+{
+  font-size: 20px;
+  font-family: 'Courgette', cursive;
+}
+
+#topBtn {
+  display: none;
+  /* Hidden by default */
+  position: fixed;
+  /* Fixed/sticky position */
+  bottom: 20px;
+  /* Place the button at the bottom of the page */
+  right: 20px;
+  /* Place the button 30px from the right */
+  z-index: 99;
+  /* Make sure it does not overlap other elements on the page */
+  border-color: white;
+  /* White borders */
+  outline-color: rgb(215, 5, 5);
+  /* Remove outline */
+  background-color: #D4A59A;
+  /* Set a background color */
+  color: #5C2018;
+  /* Text color */
+  cursor: pointer;
+  /* Add a hover effect */
+  padding: 3px;
+  /* Some padding */
+  border-radius: 10px;
+  /* Rounded corners */
+}
+
+#quangBtn {
+  display: none;
+  /* Hide the button initially */
+  position: fixed;
+  /* Fixed/sticky position */
+  bottom: 20px;
+  /* Place the button at the bottom of the page */
+  right: 20px;
+  /* Place the button 30px from the right */
+  z-index: 99;
+  /* Make sure it does not overlap */
+  border: none;
+  /* Remove borders */
+  outline: none;
+  /* Remove outline */
+  background-color: #D4A59A;
+  /* Set a background color */
+  color: black;
+  /* Text color */
+  cursor: pointer;
+  /* Add a mouse pointer on hover */
+  padding: 3px;
+  /* Some padding */
+  border-radius: 5px;
+  /* Rounded corners */
+}
+  
+  @media only screen and (max-width: 700px) {
+    .responsive {
+      width: 49.99999%;
+      margin: 6px 0;
+    }
+  }
+  
+  @media only screen and (max-width: 500px) {
+    .responsive {
+      width: 100%;
+    }
+  }
+  
+  .clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+/* X-Small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) { 
+    .gmap_canvas {
+        width: auto;
+    }
+    h3 {
+        font-weight: 500;
+        font-size: 22px;
+    }
+    h1 {
+        font-weight: 500 !important;
+        font-size: 45px !important;
+    }
+    .padding-bottom-30px {
+        padding-bottom:30px;
+    }
+    div.gallery img {
+        width: 77%;
+    }
+    p {
+        font-size: 22px;
+    }
+ }
+
+/* Medium devices (tablets, less than 992px) */
+@media (max-width: 991.98px) { 
+    .gmap_canvas {
+        width: auto;
+    }
+    .footer-section {
+        padding-bottom: 2em;
+    }
+    h3 {
+        font-weight: 500;
+        font-size: 22px;
+    }
+    h1 {
+        font-weight: 500;
+        font-size: 50px;
+    }
+    .padding-bottom-30px {
+        padding-bottom:30px;
+    }
+    .content-helper {
+        padding-bottom: 0;
+    }    
+    p {
+        font-size: 22px;
+    }
+ }
+
+ /* Small devices (landscape phones, less than 768px) */
+@media (max-width: 767.98px) {  }
+
+/* Large devices (desktops, less than 1200px) */
+@media (max-width: 1199.98px) {  }
+
+/* X-Large devices (large desktops, less than 1400px) */
+@media (max-width: 1399.98px) {  }
