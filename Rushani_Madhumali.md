@@ -1,0 +1,2 @@
+Review:
+          - This page allows customers to order food online. In addition, the available food items are added to the system according to their avalability. Here I use three tables. They are order table, order item table and item table.
