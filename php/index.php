@@ -6,15 +6,15 @@ include "header.php" ?>
 <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         <div class="carousel-item active">
-          <img src="../images/Restaurant1.jpg" class="d-block w-100" alt="image"
+          <img src="../images/restaurant1.jpg" class="d-block w-100" alt="image"
             style="object-fit: contain; width: 100%; height: auto;">
         </div>
         <div class="carousel-item">
-          <img src="../images/Restaurant2.jpg" class="d-block w-100" alt="image2"
+          <img src="../images/restaurant2.jpg" class="d-block w-100" alt="image2"
             style="object-fit: contain; width: 100%; height: auto;">
         </div>
         <div class="carousel-item">
-          <img src="../images/Restaurant3.jpg" class="d-block w-100" alt="image3"
+          <img src="../images/restaurant3.jpg" class="d-block w-100" alt="image3"
             style="object-fit: contain; width: 100%; height: auto;">
         </div>
       </div>
