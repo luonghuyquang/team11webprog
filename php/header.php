@@ -61,19 +61,19 @@
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
 
               <li class="nav-item">
-                <a class="nav-link active" href="index.php">Home</a>
+                <a <?php if(basename($_SERVER['PHP_SELF']) == 'index.php'){echo 'class="nav-link active"';} else {echo 'class="nav-link"';} ?> href="index.php">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="menu.php">Menu</a>
+                <a <?php if(basename($_SERVER['PHP_SELF']) == 'menu.php'){echo 'class="nav-link active"';} else {echo 'class="nav-link"';} ?> href="menu.php">Menu</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="reservation.php">Reservation</a>
+                <a <?php if(basename($_SERVER['PHP_SELF']) == 'reservation.php'){echo 'class="nav-link active"';} else {echo 'class="nav-link"';} ?> href="reservation.php">Reservation</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#CU">Contact</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.php">About</a>
+                <a <?php if(basename($_SERVER['PHP_SELF']) == 'about.php'){echo 'class="nav-link active"';} else {echo 'class="nav-link"';} ?> href="about.php">About</a>
               </li>
             </ul>
           </div>
