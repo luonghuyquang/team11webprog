@@ -14,17 +14,38 @@ include "header.php" ?>
   <form method="POST">
   <input type="text" placeholder="first name" name="fname"  class="form-control" required><br>
   <input type="text" placeholder="last name" name="lname"  class="form-control" required><br>
+  <input type="text" placeholder="your address" name="address"  class="form-control" required><br>
   <input type="text" placeholder="choose a username" name="username"  class="form-control" required><br>
   <input type="password" id="pass" placeholder="Password" name="password" minlength="8" class="form-control" required><br>
   <input type="email" id="email" name="email_address" placeholder="email address" class="form-control" required><br>
-  <input type="tel" placeholder="phone number" name="phone_ndr"  class="form-control" optional><br>
-  <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+  <input type="tel" placeholder="phone number" name="phone_nbr"  class="form-control" optional><br>
+  <input type="checkbox">
   <label for="vehicle1">i want to receive the daily emails</label><br>
-  <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+  <input type="checkbox">
   <label for="vehicle2"> I want to receive a customer membership</label><br>
-  <input class="btn btn-primary" type="submit" value="Submit">
+  <input class="btn btn-primary" type="submit" value="Submit" name="submit">
   </form>
   </div>
   </div>
   </div>
+  <?php
+ if(isset($_POST['submit'])){
+    $fname=$_POST['fname'];
+    $lname=$_POST['lname'];  
+    $username=$_POST['username'];
+    $password=$_POST['password'];
+    $email_address=$_POST['email_address'];
+    $phone_nbr=$_POST['phone_nbr'];
+    $address=$_POST['address'];
+    include"db.php";
+    $sql="INSERT into aisha_customer(fname,lname,username,address,password,email_address,phone_nbr)
+     VALUES ('$fname','$lname','$username','$address','$password','$email_address','$phone_nbr')";
+    if($conn->query($sql)== TRUE){
+        echo"information is added successfully!";
+    }
+    else{
+        echo "Error".$conn->error;
+    }
+ }
+?>
 <?php include "footer.php" ?>
