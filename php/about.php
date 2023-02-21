@@ -50,7 +50,7 @@ include "header.php" ?>
     <form method="POST">
   <input type="text" placeholder="username" name="username"  class="form-control" required><br>
   <input type="password" id="pass" placeholder="Password" name="password" minlength="8" class="form-control" required><br>
-  <input class="btn btn-primary" type="submit" value="Submit">
+  <input class="btn btn-primary" type="submit" value="Login" name="login">
   <a class="btn btn-primary" href="user.php" role="button">Sign up</a>
  </form>
   </div>
@@ -59,20 +59,25 @@ include "header.php" ?>
 </div>
 </div>
 <?php
- if(isset($_POST['submit'])){
-    $fname=$_POST['fname'];
-    $lname=$_POST['lname'];  
-    $city=$_POST['city'];
-    $groupid=$_POST['groupid'];
-    include"db.php";
-    $sql="INSERT into studentinfo(fname,lname,city,groupid)
-    values ('$fname','$lname','$city','$groupid')";
-    if($conn->query($sql)== TRUE){
-        echo"information is added successfully!";
+
+if(isset($_POST['login']))
+{   
+    
+    extract($_POST);
+    include 'db.php';
+    $sql=mysqli_query($conn,"SELECT * FROM aisha_customer where username='$username' and Password='$password'");
+    $row  = mysqli_fetch_array($sql);
+    //this is for authenticating the username and password 
+    if(is_array($row))
+    {
+        $_SESSION["username"] = $row['username'];
+        $_SESSION["password"]=$row['password'];
+        
     }
-    else{
-        echo "Error".$conn->error;
+    else
+    {
+        echo "Invalid Email ID/Password";
     }
- }
+}
 ?>
 <?php include "footer.php" ?>
