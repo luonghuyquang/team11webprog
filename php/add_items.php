@@ -6,6 +6,10 @@ include "header.php" ?>
 
 <div class="row">
 
+<br>
+<h1>Add New Item</h1>
+<br>
+
 <div class="col-md-6">                                 
     <img  style="width: 400px; height: 300px;" src="../images/ifram.jpg" />
 </div>
@@ -13,13 +17,11 @@ include "header.php" ?>
 <div class="col-md-6">    
 <div class="container">
 
-    <div class="row align-items-center">
+    <div class="row  align-items-center">
  
        
        <div class="col-md-12">
-                <br>
-                <h1>Add New Item</h1>
-                <br>
+                
 
                 
                 <form  class="row g-3" action="" method="post" enctype="multipart/form-data">
