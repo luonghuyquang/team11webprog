@@ -85,16 +85,59 @@ include "header.php" ?>
             </div>
         </div>
      </div>
+     <div class="row">
+        <div class="col-md-12">
+          <table class="table" id="example">
+            <thead>
+            <tr>
+              <td>item name</td>
+              <td>unit</td>
+              <td>unit price</td>
+              <td>quantity</td>
+              <td>status</td>
+              <td></td>
+            </tr>
+            </thead>
+            <tbody>
+            <?php
+      //get all items..
+      $sql = "SELECT * FROM rushani_items";
+      $result = $conn->query($sql);
+      if ($result->num_rows > 0) {
+          // output data of each row
+          while($row = $result->fetch_assoc()) {
+           ?>
+           <tr>
+              <td><?php echo $row['item_name'];?></td>
+              <td><?php echo $row['unit'];?></td>
+              <td><?php echo $row['unit_price'];?></td>
+              <td><?php echo $row['quantity'];?></td>
+              <td><?php
+               if($row['item_status']==1){
+                echo "Active";
+                echo "<a class='btn btn-sm btn-primary' href='?sid=".$row['item_nbr']."&&stts=0'>Inactive me</a>";
+               }else{
+                echo "Inactive";
+                echo "<a class='btn btn-sm btn-warning' href='?sid=".$row['item_nbr']."&&stts=1'>Active me</a>";
+               }
+              ?></td>
+              <td><a class="btn btn-sm btn-success" href="edit_item.php?id=<?php echo $row['item_nbr'];?>">Edit</a></td>
+            </tr>
+           <?php
+          }
+        }
+      ?>
+    </tbody>
+    </table>
+  </div>
+</div>
+
+
+</div>
+
+
+
 </div>
 
     
-
-
-
-
-
-
-
-
-
 <?php include "footer.php" ?>
