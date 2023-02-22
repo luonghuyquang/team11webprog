@@ -1,4 +1,5 @@
 <?php
+ob_start();
 $title = "Add Items page";
 include "header.php"; 
 include "db.php";
