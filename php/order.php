@@ -3,36 +3,51 @@ $title = "Order page";
 include "header.php"; 
 include "db.php";
 
-// save items..
-if(isset($_POST['saveitm'])){
-    $itmname = $_POST['itmname'];
-    $unit = $_POST['unit'];
-    $price = $_POST['price'];
-    $qty = $_POST['qty'];
-    $img = $_FILES["itemimg"]["name"];
+if(isset($_POST['prcd_order']))
+ {
+    $customerid = $_POST['customerid'];
+    $username = $_POST['username'];
+    $address = $_POST['address'];
+    $phone = $_POST['phone'];
+    $email = $_POST['email'];
+    $types = $_POST['type'];
+    $gttl = $_GET['tprice'];
+    $order_time = date("Y-m-d h:i:s");
+    
+    $sqlproceed = "INSERT INTO rushani_order (order_time,username,customer_id,address,phone_nbr,email,order_type,total_amt) VALUES ('$order_time','$username','$customerid','$address','$phone','$email','$types','$gttl')";
+    
+    if($conn->query($sqlproceed))
+    {
+      $last_id = $conn->insert_id;
+      foreach($_SESSION["shopping_cart"] as $product)
+      {
+         $itmcode = $product["code"];
+         $itmname = $product["name"];
+         $qty = $product["quantity"];
+         $price = $product["price"];
+         $subamt = $qty*$price;
   
-    $target_dir = "images/";
-    $target_file = $target_dir . basename($_FILES["itemimg"]["name"]);
-    $uploadOk = 1;
-    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
-    if (move_uploaded_file($_FILES["itemimg"]["tmp_name"], $target_file)) {
-      $sql = "INSERT INTO rushani_items (item_name,unit,unit_price,quantity,item_image) VALUES ('$itmname','$unit','$price','$qty','$img')";
   
-            if ($conn->query($sql) === TRUE) {
-              echo "<script type='text/javascript'>alert('New ITEM added successfully')</script>";
-            } else {
-              echo "<script type='text/javascript'>alert('error creating items')</script>";
-            }
+         $sqlproceed2 = "INSERT INTO rushani_order_items (item_nbr,item_name,quantity,unit_price,subtotal_amt,order_nbr) VALUES ('$itmcode','$itmname','$qty','$price','$subamt','$last_id')";
+          
+         if($conn->query($sqlproceed2))
+         {
+             unset($_SESSION["shopping_cart"]);
+             header("location:menu.php");
+         }
+      }
     }
+    
   }
-  
-
 
 ?>
 
-
-
-
+<?php
+    if(!empty($_SESSION["shopping_cart"])) 
+    {
+        $cart_count = count(array_keys($_SESSION["shopping_cart"]));
+    }
+?>
 
 
 <?php include "footer.php" ?>
