@@ -45,7 +45,7 @@
       document.documentElement.scrollTop = 0;
     }
   </script>
-
+ <script src="/team11Webprog/javascript/javascript.js"></script>
 </head>
 
 <body>

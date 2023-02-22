@@ -1,31 +1,4 @@
 <?php
- //this for starting the session 
-  session_start();
-if(isset($_POST['login']))
-{   
-    $password=$_POST['password'];
-    $username=$_POST['username'];
-    //extract($_POST);
-    include 'db.php';
-    //this is slect the row where username and password are the same as the one the user entered
-    $sql=mysqli_query($conn,"SELECT * FROM aisha_customer where username='$username' and password='$password'");
-    $row = mysqli_fetch_array($sql);
-    //this is for authenticating the username and password 
-    
-    if(is_array($row)==TRUE)
-    {
-        /*$_SESSION["username"] = $row['username'];
-        $_SESSION["password"]= $row['password'];*/
-        echo "logged in successful";
-    }
-    else
-    {
-        echo "Invalid Email ID/Password";
-    }
-}
-  
-?>
-<?php
 $title = "AboutUs page";
 include "header.php" ?>
 
@@ -74,9 +47,9 @@ include "header.php" ?>
        there is anything we can do to make your visit more enjoyable. Thank you!</p2>
   </div>
   <div class="col-lg-6 mx-auto text-left" >
-    <form method="POST">
-  <input type="text" placeholder="username" name="username"  class="form-control" required><br>
-  <input type="password" id="pass" placeholder="Password" name="password" minlength="8" class="form-control" required><br>
+    <form method="POST" action=" " onsubmit="return val()" id="loginform">
+  <input type="text" placeholder="username" name="username"  class="form-control" ><br>
+  <input type="password" id="pass" placeholder="Password" name="password" minlength="8" class="form-control" ><br>
   <input class="btn btn-primary" type="submit" value="Login" name="login">
   <a class="btn btn-primary" href="user.php" role="button">Sign up</a>
  </form>
@@ -85,6 +58,6 @@ include "header.php" ?>
 </div>
 </div>
 </div>
-
+ 
 <?php include "footer.php" ?>
 
