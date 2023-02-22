@@ -1,5 +1,5 @@
 <?php
-$title = "AboutUs page";
+$title = "Add Items page";
 include "header.php"; 
 include "db.php";
 
@@ -11,12 +11,13 @@ if(isset($_POST['saveitm'])){
     $qty = $_POST['qty'];
     $img = $_FILES["itemimg"]["name"];
   
-    $target_dir = "images/";
+    $target_dir = "../images/";
     $target_file = $target_dir . basename($_FILES["itemimg"]["name"]);
     $uploadOk = 1;
     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
     if (move_uploaded_file($_FILES["itemimg"]["tmp_name"], $target_file)) {
-      $sql = "INSERT INTO rushani_items (item_name,unit,unit_price,quantity,item_image) VALUES ('$itmname','$unit','$price','$qty','$img')";
+      
+      $sql = "INSERT INTO rushani_items(item_name,unit,unit_price,quantity,item_image,item_status) VALUES ('$itmname','$unit','$price','$qty','$img',1)";
   
             if ($conn->query($sql) === TRUE) {
               echo "<script type='text/javascript'>alert('New ITEM added successfully')</script>";
@@ -128,11 +129,24 @@ if(isset($_POST['saveitm'])){
         </div>
      </div>
 </div>
+<br>
 
+<div>
 
-<div class="row align-items-center" >
-        <div class="col-md-12">
-          <table class="table" id="example" width="1000">
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
+ <script type="text/javascript">
+   $(document).ready(function () {
+    $('#example').DataTable();
+});
+
+ </script> 
+        <!-- create a table-->
+        <div class="row">
+          <div class="col-md-1"></div>
+        <div class="col-md-10" style="background-color:white;" padding-top:5px;>
+        
+          <table class="table" id="example" style="background-color:lightgray;">
             <thead>
             <tr>
               <th>ITEM NAME</th>
@@ -160,10 +174,10 @@ if(isset($_POST['saveitm'])){
                     <td><?php echo $row['quantity'];?></td>
                     <td><?php
                      if($row['item_status']==1){
-                      echo "Active";
+                      echo "Active&nbsp;&nbsp;";
                       echo "<a class='btn btn-sm btn-primary' href='?sid=".$row['item_nbr']."&&stts=0'>Inactive me</a>";
                      }else{
-                      echo "Inactive";
+                      echo "Inactive&nbsp;&nbsp;";
                       echo "<a class='btn btn-sm btn-warning' href='?sid=".$row['item_nbr']."&&stts=1'>Active me</a>";
                      }
                     ?></td>
@@ -175,19 +189,15 @@ if(isset($_POST['saveitm'])){
             ?>
           </tbody>
           </table>
+            
         </div>
+        <div class="col-md-1"></div>
+            </div>
       </div>
 
     </div>
     
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
- <script type="text/javascript">
-   $(document).ready(function () {
-    $('#example').DataTable();
-});
-
- </script> 
+    
 </body>
 <?php
 $conn->close();
