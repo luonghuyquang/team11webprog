@@ -19,10 +19,11 @@ include "header.php" ?>
   <input type="password" id="pass" placeholder="Password" name="password" minlength="8" class="form-control" required><br>
   <input type="email" id="email" name="email_address" placeholder="email address" class="form-control" required><br>
   <input type="tel" placeholder="phone number" name="phone_nbr"  class="form-control" optional><br>
+  
   <input type="checkbox">
-  <label for="vehicle1">i want to receive the daily emails</label><br>
-  <input type="checkbox">
-  <label for="vehicle2"> I want to receive a customer membership</label><br>
+  <label for="daily emails">i want to receive the daily emails</label><br>
+  <input type="checkbox" name="member" value="1">
+  <label for="membership"> I want to receive a customer membership</label><br>
   <input class="btn btn-primary" type="submit" value="Submit" name="submit">
   </form>
   </div>
@@ -44,8 +45,15 @@ include "header.php" ?>
         echo"information is added successfully!";
     }
     else{
-        echo "Error".$conn->error;
+        echo "Error".$conn->connect_error;
     }
- }
+    if(empty($_POST['member'])){
+      echo"No membership id will be alocated";
+    }else{
+     /* $sql="INSERT into aisha_membership(username,password,email)
+     VALUES ('$username','$password','$email_address',)";*/
+     echo"membership id allocated";
+    }
+  }
 ?>
 <?php include "footer.php" ?>
