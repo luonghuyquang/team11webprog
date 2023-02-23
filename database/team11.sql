@@ -151,6 +151,7 @@ CREATE TABLE `rushani_order_items` (
 
 --
 -- Table structure for table `shreya_review`
+
 --
 
 CREATE TABLE `shreya_review` (
@@ -166,6 +167,21 @@ CREATE TABLE `shreya_review` (
 --
 -- Indexes for dumped tables
 --
+-- Chnages in table 'shreya_review'
+--chnaging coloum name from suggetion to review
+    ALTER table shreya_review CHANGE suggestion, review text;
+-- changinng coloum name from starring to rate 
+    ALTER table shreya_review CHANGE starring, rate int;
+-- Changing coloum name from customerid to reviewid
+    ALTER table shreya_review CHANGE customerid, reviewid;
+--Droping primary key
+    ALTER TABLE shreya_review
+    DROP PRIMARY KEY;
+--Adding reviewid as a primary key
+    ALTER TABLE shreya_review
+    ADD PRIMARY KEY (reviewid);
+
+
 
 --
 -- Indexes for table `aisha_customer`
