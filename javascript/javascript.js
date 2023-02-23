@@ -1,11 +1,11 @@
 
   function val(){
-     let username=document.loginform.username.value;
-     let password=document.loginform.password.value;
+     let username=document.getElementById('username');
+     let password=document.getElementById('pass');
      if(!username.length==null){
       if(!password==null){
         alert("logged successfully!");
-        return false;
+        return true;
       }else{
         alert("Invalid username and password!");
        return false;
