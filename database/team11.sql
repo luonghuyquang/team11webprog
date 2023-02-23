@@ -155,35 +155,17 @@ CREATE TABLE `rushani_order_items` (
 --
 
 CREATE TABLE `shreya_review` (
-  `email_address` varchar(12) NOT NULL,
-  `customerid` int NOT NULL,
-  `fname` varchar(20) NOT NULL,
-  `lname` varchar(20) NOT NULL,
-  `suggestion` varchar(350) NOT NULL,
-  `starring` enum('1','2','3','4','5') NOT NULL,
+  `email_address` varchar(50) NOT NULL,
+  `reviewid` int NOT NULL,
+  `fname` varchar(50) NOT NULL,
+  `lname` varchar(50) NOT NULL,
+  `review` text NOT NULL,
+  `rate` int NOT NULL,
   `date` timestamp NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Indexes for dumped tables
---
--- Chnages in table 'shreya_review'
---chnaging coloum name from suggetion to review
-    ALTER table shreya_review CHANGE suggestion, review text;
--- changinng coloum name from starring to rate 
-    ALTER table shreya_review CHANGE starring, rate int;
--- Changing coloum name from customerid to reviewid
-    ALTER table shreya_review CHANGE customerid, reviewid;
---Droping primary key
-    ALTER TABLE shreya_review
-    DROP PRIMARY KEY;
---Adding reviewid as a primary key
-    ALTER TABLE shreya_review
-    ADD PRIMARY KEY (reviewid);
-
-
-
---
 -- Indexes for table `aisha_customer`
 --
 ALTER TABLE `aisha_customer`
