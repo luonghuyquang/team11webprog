@@ -221,10 +221,10 @@ COMMIT;
 
 DROP TABLE IF EXISTS quang_tables, quang_reservation, quang_reserved;
 CREATE TABLE quang_tables (
-  table_id VARCHAR(50) NOT NULL PRIMARY KEY,
+  table_id VARCHAR(30) NOT NULL PRIMARY KEY,
   seats INT,
   table_name VARCHAR(30),
-  table_spec VARCHAR(40)
+  table_spec VARCHAR(60)
 );
 INSERT INTO quang_tables (table_id, seats, table_name, table_spec)
 VALUES ('meeting_room_1', 10, 'Meeting Room 1', 'Good for Business and Event'),
@@ -241,13 +241,13 @@ CREATE TABLE quang_reservation (
   reservation_code VARCHAR(6) NULL,
   cust_name VARCHAR(30) NOT NULL,
   phone_nbr VARCHAR(20) NOT NULL,
-  cust_email VARCHAR(50) NOT NULL,
+  cust_email VARCHAR(60) NOT NULL,
   FOREIGN KEY (cust_email) REFERENCES aisha_customer(email_address),
   start_datetime DATETIME,
   end_datetime DATETIME,
   nbr_of_guests INT NOT NULL,
   special_request VARCHAR(255),
-  table_id VARCHAR(20) NOT NULL,
+  table_id VARCHAR(30) NOT NULL,
   FOREIGN KEY (table_id) REFERENCES quang_tables(table_id),
   created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
