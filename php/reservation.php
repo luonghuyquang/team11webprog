@@ -4,18 +4,18 @@ include "header.php" ?>
 
 <div class="container">
   <div class="row">
+    <!--Left side of the reservation page: info, buttons, photo etc.-->
     <div class="col-md-6">
-      <!--Left side of the reservation page: info, buttons, photo etc.-->
-      <br>
+      <br><br><br>
       <a class="btn btn-primary" href="tel:+358123456789"><i class="fa fa-phone"
         style="font-size:20px;color:rgb(228, 255, 23)"></i> Call us + 358 12 345 6789</a>
       <a class="btn btn-secondary" href="sms:+358123456789?body=I-Want-To-Reserve!"><i class="fa fa-send-o"
         style="font-size:20px"></i> Send us an SMS</a> <br><br>
-      <a class="btn btn-success" href="https://wa.me/+358-12-345-6789"><i class="fa fa-whatsapp"
+      <a class="btn btn-success" href="https://wa.me/358123456789" target="_blank"><i class="fa fa-whatsapp"
         style="font-size:24px"></i> Chat on WhatsApp</a>
       <a class="btn btn-dark" href="mailto:amarillo@gmail.com" role="button"><i
         class="fa fa-envelope" style="font-size:20px;color:white"></i> Reserve via email amarillo@gmail.com</a><br><br>
-      <a class="btn btn-success" href="https://goo.gl/maps/8RrzVnpfkNV4gU9NA"><i class="fa fa-map-marker"
+      <a class="btn btn-success" href="https://goo.gl/maps/8RrzVnpfkNV4gU9NA" target="_blank"><i class="fa fa-map-marker"
         style="font-size:24px"></i> Aleksanterinkatu 46, 00100 Helsinki <i class="fa fa-bus"
         style="font-size:18px;"></i> <i class="fa fa-cab" style="font-size:18px;"></i> <i class="fa fa-car"
         style="font-size:18px;"></i></a> <br><br>
@@ -124,8 +124,8 @@ include "header.php" ?>
         if ($result_table->num_rows > 0) {
           $row_table = $result_table->fetch_assoc();
           $table_name = $row_table["table_name"];
-          echo "<h4>You have successfully reserved $table_name <br>
-          for $party_date from $start_time to $end_time <br>
+          echo "<h4>You have successfully reserved $table_name for $nbr_of_guests people <br>
+          From $start_time to $end_time of $party_date <br>
           Your reservation code is $reservation_code <br>
           Looking forward to welcoming and serving you! Nahdaan!</h4>";
         }
@@ -136,5 +136,9 @@ include "header.php" ?>
     ?>
   </div>  
 </div>
+
+<?php
+include 'reservez.time.php';
+?>
 
 <?php include "footer.php" ?>
