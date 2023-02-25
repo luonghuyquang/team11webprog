@@ -1,8 +1,8 @@
 <?php
 $servername="d4cab9dc2e30";
-$username="crudapp";
-$password='password';
-$dbname="team11_project";
+$username="team11";
+$password='j62JL!C4)WrPn3Zp';
+$dbname="team11";
 //creating connection
 $conn = new mysqli($servername, $username, $password,$dbname);
 //test connection
