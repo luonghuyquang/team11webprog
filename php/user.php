@@ -15,8 +15,8 @@ include "header.php" ?>
   <input type="text" placeholder="first name" name="fname"  class="form-control" required><br>
   <input type="text" placeholder="last name" name="lname"  class="form-control" required><br>
   <input type="text" placeholder="your address" name="address"  class="form-control" required><br>
-  <input type="text" placeholder="choose a username" name="username"  class="form-control" required><br>
-  <input type="password" id="pass" placeholder="Password" name="password" minlength="8" class="form-control" required><br>
+  <!--input type="text" placeholder="choose a username" name="username"  class="form-control" required><br>
+---><input type="password" id="pass" placeholder="Password" name="password" minlength="8" class="form-control" required><br>
   <input type="email" id="email" name="email_address" placeholder="email address" class="form-control" required><br>
   <input type="tel" placeholder="phone number" name="phone_nbr"  class="form-control" optional><br>
   
@@ -33,27 +33,25 @@ include "header.php" ?>
  if(isset($_POST['submit'])){
     $fname=$_POST['fname'];
     $lname=$_POST['lname'];  
-    $username=$_POST['username'];
     $password=$_POST['password'];
     $email_address=$_POST['email_address'];
     $phone_nbr=$_POST['phone_nbr'];
     $address=$_POST['address'];
     include"db.php";
-    $sql="INSERT into aisha_customer(fname,lname,username,address,password,email_address,phone_nbr)
-     VALUES ('$fname','$lname','$username','$address','$password','$email_address','$phone_nbr')";
-    if($conn->query($sql)== TRUE){
-        echo"information is added successfully!";
-    }
-    else{
-        echo "Error".$conn->connect_error;
-    }
-    if(empty($_POST['member'])){
+    $sql="INSERT into aisha_customer(fname,lname,address,password,email_address,phone_nbr)
+    VALUES ('$fname','$lname','$address','$password','$email_address','$phone_nbr')";
+   if($conn->query($sql)== TRUE){
+       echo"information is added successfully!";
+   }
+   else{
+       echo "Error".$conn->error;
+   }
+    /*if(empty($_POST['member'])){
       echo"No membership id will be alocated";
     }else{
-     /* $sql="INSERT into aisha_membership(username,password,email)
-     VALUES ('$username','$password','$email_address',)";*/
+     
      echo"membership id allocated";
-    }
+    }*/
   }
 ?>
 <?php include "footer.php" ?>

@@ -48,7 +48,7 @@ include "header.php" ?>
   </div>
   <div class="col-lg-6 mx-auto text-left" >
     <form method="POST" action=" " id="loginform" onsubmit="return val()" action=" ">
-  <input type="text" placeholder="username" id="username" name="username"  class="form-control" ><br>
+   <input type="email" id="email" name="email_address" placeholder="email address" class="form-control" required><br>
   <input type="password" id="pass" placeholder="Password" name="password" minlength="8" class="form-control" ><br>
   <input class="btn btn-primary" type="submit" value="Login" name="login">
   <a class="btn btn-primary" href="user.php" role="button">Sign up</a>
@@ -62,19 +62,19 @@ include "header.php" ?>
 if(isset($_POST['login']))
 {    
     $password=$_POST['password'];
-    $username=$_POST['username'];
+    $email_address=$_POST['email_address'];
     include 'db.php';
     //this is slect the row where username and password are the same as the one the user entered
-    $sql="SELECT * FROM aisha_customer where username='$username' and password='$password'";
-    $result = $conn->query($sql);
-
-    /*if ($result->num_rows > 0) {
-      echo"logged in successfully";
+    $sql="SELECT * FROM aisha_customer where email_address='$email_address' && 'password'='$password' LIMIT 1";
+     $execute_sql=mysqli_query($conn,$sql);
+     if($execution_results=mysqli_num_rows($execute_sql))
+    {
+      echo "logged in successfully";
     }
     else{
-      echo"invalid password or username";
-      
-    }*/
+      echo"incorrect username and password"; 
+    }
+  
     $conn->close();  
 }
   
