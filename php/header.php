@@ -8,6 +8,9 @@
   <!--Bootstrap CSS code-->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
+    
   <!--Bootstrap JS code-->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
@@ -25,6 +28,11 @@
   <!--Local CSS files to be merged together-->
   <link rel="stylesheet" href="../style/style2.css">
   <link rel="stylesheet" href="../style/style.css">
+  
+<!-- jquery -->
+  <script src="https://code.jquery.com/jquery-3.6.3.min.js"
+    integrity="sha256-pvPw+upLPUjgMXY0G+8O0xUf+/Im1MZjXxxgOcBQBXU=" crossorigin="anonymous"></script>  
+
 
   <!--go to top button-->
   <script>
@@ -71,6 +79,9 @@
               </li>
               <li class="nav-item">
                 <a <?php if(basename($_SERVER['PHP_SELF']) == 'reservation.php'){echo 'class="nav-link active"';} else {echo 'class="nav-link"';} ?> href="reservation.php">Reservation</a>
+              </li>
+              <li class="nav-item">
+                <a <?php if(basename($_SERVER['PHP_SELF']) == 'reservation.php'){echo 'class="nav-link active"';} else {echo 'class="nav-link"';} ?> href="review.php">Review</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#CU">Contact</a>

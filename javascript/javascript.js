@@ -15,7 +15,4 @@
        alert("Invalid username and password!");
        return false;
      }
-     
-    
-
-   
+    }
