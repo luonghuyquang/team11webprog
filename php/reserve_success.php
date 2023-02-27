@@ -1,4 +1,8 @@
 <?php
+$title = "Successfully Resered";
+include "header.php" ?>
+
+<?php
       // validation and display for the reservation page
       if (isset($_POST['submit'])){
       // Receive the data from form input
@@ -40,3 +44,5 @@
         }
       }
     ?>
+
+<?php include "footer.php" ?>

@@ -47,10 +47,10 @@ include "header.php" ?>
        there is anything we can do to make your visit more enjoyable. Thank you!</p2>
   </div>
   <div class="col-lg-6 mx-auto text-left" >
-    <form method="POST" action=" " id="loginform" >
+    <form method="POST" action=" " id="loginform" onsubmit="return val()" action=" ">
   <input type="text" placeholder="username" id="username" name="username"  class="form-control" ><br>
   <input type="password" id="pass" placeholder="Password" name="password" minlength="8" class="form-control" ><br>
-  <input class="btn btn-primary" type="submit" value="Login" name="login"  onclick="val(document.loginform)">
+  <input class="btn btn-primary" type="submit" value="Login" name="login">
   <a class="btn btn-primary" href="user.php" role="button">Sign up</a>
  </form>
   </div>
