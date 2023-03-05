@@ -15,8 +15,7 @@ include "header.php" ?>
   <input type="text" placeholder="first name" name="fname"  class="form-control" required><br>
   <input type="text" placeholder="last name" name="lname"  class="form-control" required><br>
   <input type="text" placeholder="your address" name="address"  class="form-control" required><br>
-  <!--input type="text" placeholder="choose a username" name="username"  class="form-control" required><br>
----><input type="password" id="pass" placeholder="Password" name="password" minlength="8" class="form-control" required><br>
+  <input type="password" id="pass" placeholder="Password" name="password" minlength="8" class="form-control" required><br>
   <input type="email" id="email" name="email_address" placeholder="email address" class="form-control" required><br>
   <input type="tel" placeholder="phone number" name="phone_nbr"  class="form-control" optional><br>
   
@@ -46,12 +45,12 @@ include "header.php" ?>
    else{
        echo "Error".$conn->error;
    }
-    /*if(empty($_POST['member'])){
+    if(empty($_POST['member'])){
       echo"No membership id will be alocated";
     }else{
      
      echo"membership id allocated";
-    }*/
+    }
   }
 ?>
 <?php include "footer.php" ?>

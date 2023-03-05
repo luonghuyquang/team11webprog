@@ -1,4 +1,33 @@
 <?php
+//this for starting the session 
+  session_start();
+if(isset($_POST['login']))
+{   
+    $password=$_POST['password'];
+    $email_address=$_POST['email_address'];
+    //extract($_POST);
+    include 'db.php';
+    //this is slect the row where username and password are the same as the one the user entered
+    
+    $sql=mysqli_query($conn,"SELECT email_address,password FROM aisha_customer");
+    $row = mysqli_fetch_assoc($sql);
+       if(in_array("$email_address",$row ) &&in_array("$password",$row)){
+           
+         echo"<a> href='userinfo.php'></a>";
+      }
+      else{
+        echo "Invalid Email Password";
+      }
+      
+    }
+ 
+    else
+    {
+          echo "Invalid Email ID/Password";
+    }
+
+?>
+<?php
 $title = "AboutUs page";
 include "header.php" ?>
 
@@ -59,7 +88,7 @@ include "header.php" ?>
 </div>
 </div>
 <?php
-if(isset($_POST['login']))
+/*if(isset($_POST['login']))
 {    
     $password=$_POST['password'];
     $email_address=$_POST['email_address'];
@@ -76,7 +105,7 @@ if(isset($_POST['login']))
     }
   
     $conn->close();  
-}
+}*/
   
 ?>
  
