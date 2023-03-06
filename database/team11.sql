@@ -185,8 +185,7 @@ ALTER TABLE `rushani_order`
 -- Indexes for table `rushani_order_items`
 --
 ALTER TABLE `rushani_order_items`
-  ADD PRIMARY KEY (`item_nbr`),
-  ADD KEY `order_nbr` (`order_nbr`);
+  ADD PRIMARY KEY (`item_nbr`);
 
 --
 -- AUTO_INCREMENT for dumped tables
