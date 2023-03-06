@@ -1,53 +1,122 @@
 <?php
-$title = "Menu Page";
-include "header.php" ?>
+session_start();
+include "db.php";
+$status = "";
+if (isset($_POST['code']) && $_POST['code']!="")
+{
+$code = $_POST['code'];
+$itmname = $_POST['itmname'];
+$unit_price = $_POST['unit_price'];
+$req_qty = $_POST['req_qty'];
+/* echo $req_qty; */
+$cartArray = array(
+  $code=>array(
+  'name'=>$itmname,
+  'code'=>$code,
+  'price'=>$unit_price,
+  'quantity'=>$req_qty,
+  )
+);
 
-<div class="row">
-        <div class="column left">
-          <br><a class="menu" href="../html/breakfast.html" target="iframe_a"><img id="img1" src="../images/breakfast.jpg"
-              alt="Image" width="200px"></a><br><a class="menu" href="../html/breakfast.html"
-            target="iframe_a">BREAKFAST</a><br>
+if(empty($_SESSION["shopping_cart"])) {
+    $_SESSION["shopping_cart"] = $cartArray;
+    $status = "<div class='box'>Product is added to your cart!</div>";
+}else{
+    $array_keys = array_keys($_SESSION["shopping_cart"]);
+    if(in_array($code,$array_keys)) {
+  $status = "<div class='box' style='color:red;'>
+  Product is already added to your cart!</div>";  
+    } 
+    else {
+    $_SESSION["shopping_cart"] = array_merge(
+    $_SESSION["shopping_cart"],
+    $cartArray
+    );
+    $status = "<div class='box'>Product is added to your cart!</div>";
+  }
 
-          <a class="menu" href="../html/lunch.html" target="iframe_a"><img id="img1" src="../images/lunch.jpg" alt="Image"
-              width="200px"></a><a class="menu" href="../html/lunch.html" target="iframe_a">LUNCH</a><br>
-          <a class="menu" href="../html/dinner.html" target="iframe_a"><img id="img1" src="../images/dinner.jpeg" alt="Image"
-              width="200px"></a><a class="menu" href="../html/dinner.html" target="iframe_a">DINNER</a>
+  }
 
+}
+?>
 
-        </div>
-        <!--create column3-->
-        <div class="column center">
-          <br><a class="menu" href="../html/salad.html" target="iframe_a"><img id="img1" src="../images/salad.jpg" alt="Image"
-              width="200px"></a><a class="menu" href="../html/salad.html" target="iframe_a">SALADS</a>
-          <a class="menu" href="../html/dessert.html" target="iframe_a"><img id="img1" src="../images/dessert.jpg" alt="Image"
-              width="200px"></a><a class="menu" href="../html/dessert.html" target="iframe_a">DESSERTS</a><br>
-          <a class="menu" href="../html/drinks.html" target="iframe_a"><img id="img1" src="../images/drink.jpg" alt="Image"
-              width="200px"></a><a class="menu" href="../html/drinks.html" target="iframe_a">DRINKS</a>
-        </div>
-        <!--end of column03-->
-        <!--create column2-->
-        <div class="coumn right">
+<?php
+$cart_count = 0;
+if(!empty($_SESSION["shopping_cart"])) {
+$cart_count = count(array_keys($_SESSION["shopping_cart"]));
+}
+?>
+
+<?php
+    $title = "Cart page";
+    include "header.php";
+ ?>
+   <!--End of Header part-->
+   
+  
+    <div>
+      <!--create row 1-->
+
+      <div class="row">
+        
+      <p><h1>Menu</h1></p>
+        
+        <div class="coumn" style="align-items: center;">
+        
+        <div class="row">
+
+          <div class="col-md-2"></div>
+          <div class="col-md-8">
           <br>
-          <!--make a responsive-->
-          <div class="Un-order">
-            <ul>
-              <li><a class="menu" href="../html/breakfast.html" target="iframe_a">BREAKFAST</a> </li>
-              <li class="min"><a class="menu" href="../html/lunch.html" target="iframe_a">LUNCH </a> </li>
-              <li class="min1"><a class="menu" href="../html/lunch.html" target="iframe_a">LUNCH &nbsp;</a> </li>
-              <li class="min" id="line1">&nbsp;&nbsp;&nbsp;<a class="menu" href="../html/dinner.html"
-                  target="iframe_a">DINNER</a> </li>
-              <li class="min1" id="line1"><a class="menu" href="../html/dinner.html" target="iframe_a">DINNER</a> </li>
-            </ul>
-            <ul>
-              <li id="line"><a class="menu" href="../html/salad.html" target="iframe_a">SALADS</a></li>
-              <li><a class="menu" href="../html/dessert.html" target="iframe_a">DESSERTS</a></li>
-              <li><a class="menu" href="../html/drinks.html" target="iframe_a">DRINKS</a>&nbsp;</li>
-            </ul>
+      <button type="button"  class="btn btn-success"><a href="cart.php" class="nav-link">Cart (<?php echo $cart_count; ?>)</a></button>
+          <div class="row1" >
+           <?php 
+            $sql = "SELECT * FROM rushani_items WHERE item_status=1";
+            $result = $conn->query($sql);
+            if ($result->num_rows > 0) {
+                // output data of each row
+                while($row = $result->fetch_assoc()) {
+           ?>
+            <div class="column1" >
+              <img id="img1" src="../images/<?php echo $row['item_image'];?>" alt="Lettuce salad" style="width:250px;height:200px">
+              <p style="font-size:20px;"><?php echo $row['item_name'];?><br>
+                                  Price : <?php echo $row['unit_price'];?><br>
+                                 <!-- Qty : <?php echo $row['quantity'];?> -->  </p>
+              
+
+              
+                <form method="post" action="">
+                <input type="hidden" name="code" value="<?php echo $row['item_nbr']?>" />
+                <input type="hidden" name="itmname" value="<?php echo $row['item_name']?>" />
+                <input type="hidden" name="unit_price" value="<?php echo $row['unit_price']?>" />
+                <input type="text" class="form-control" name="req_qty" />   
+                <button class="btn btn-sm btn-success" type="submit">Add to Cart</button>
+                <br/><br>
+                </form>
+              
+
+            </div>
+           <?php
+
+              }
+             }
+           ?> 
           </div>
-          <!--add a iframe-->
-          <iframe src="../images/ifram.jpg" name="iframe_a" height="555px" width="100%" title="Iframe Example"></iframe>
-          <h1>Menu</h1>
+          </div>
+          <div class="col-md-2"></div>
+        </div>
+          
+        
+
+          <div class="message_box" style="margin:10px 0px;">
+          <?php echo $status; ?>
+          </div>
+          
+
+
         </div>
       </div>
-
-<?php include "footer.php" ?>
+     <!--Footer-->
+     <?php include "footer.php" ?> 
+    </div>
+  </div>
