@@ -249,27 +249,7 @@ CREATE TABLE `shreya_review` (
 ALTER TABLE `aisha_customer`
   ADD PRIMARY KEY (`email_address`);
 
---
--- Indexes for table `rushani_items`
---
-ALTER TABLE `rushani_items`
-  ADD PRIMARY KEY (`item_nbr`);
 
---
--- Indexes for table `rushani_order`
---
-ALTER TABLE `rushani_order`
-  ADD PRIMARY KEY (`order_nbr`),
-  ADD KEY `rushani_order_ibfk_1` (`email`);
-
---
--- Indexes for table `rushani_order_items`
---
-ALTER TABLE `rushani_order_items`
-  ADD KEY `item_nbr` (`item_nbr`),
-  ADD KEY `order_nbr` (`order_nbr`);
-
---
 -- Indexes for table `shreya_review`
 --
 ALTER TABLE `shreya_review`
@@ -277,20 +257,6 @@ ALTER TABLE `shreya_review`
   ADD KEY `email_address` (`email_address`);
 
 --
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `rushani_items`
---
-ALTER TABLE `rushani_items`
-  MODIFY `item_nbr` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
-
---
--- AUTO_INCREMENT for table `rushani_order`
---
-ALTER TABLE `rushani_order`
-  MODIFY `order_nbr` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `shreya_review`
@@ -299,23 +265,7 @@ ALTER TABLE `shreya_review`
   MODIFY `reviewid` int NOT NULL AUTO_INCREMENT;
 
 --
--- Constraints for dumped tables
---
 
---
--- Constraints for table `rushani_order`
---
-ALTER TABLE `rushani_order`
-  ADD CONSTRAINT `rushani_order_ibfk_1` FOREIGN KEY (`email`) REFERENCES `aisha_customer` (`email_address`);
-
---
--- Constraints for table `rushani_order_items`
---
-ALTER TABLE `rushani_order_items`
-  ADD CONSTRAINT `rushani_order_items_ibfk_1` FOREIGN KEY (`item_nbr`) REFERENCES `rushani_items` (`item_nbr`) ON DELETE RESTRICT ON UPDATE RESTRICT,
-  ADD CONSTRAINT `rushani_order_items_ibfk_2` FOREIGN KEY (`order_nbr`) REFERENCES `rushani_order` (`order_nbr`) ON DELETE RESTRICT ON UPDATE RESTRICT;
-
---
 -- Constraints for table `shreya_review`
 --
 ALTER TABLE `shreya_review`
