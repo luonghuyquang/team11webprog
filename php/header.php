@@ -81,7 +81,7 @@
                 <a <?php if(basename($_SERVER['PHP_SELF']) == 'reservation.php'){echo 'class="nav-link active"';} else {echo 'class="nav-link"';} ?> href="reservation.php">Reservation</a>
               </li>
               <li class="nav-item">
-                <a <?php if(basename($_SERVER['PHP_SELF']) == 'reservation.php'){echo 'class="nav-link active"';} else {echo 'class="nav-link"';} ?> href="review.php">Review</a>
+                <a <?php if(basename($_SERVER['PHP_SELF']) == 'review.php'){echo 'class="nav-link active"';} else {echo 'class="nav-link"';} ?> href="review.php">Review</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#CU">Contact</a>
