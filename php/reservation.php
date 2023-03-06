@@ -2,7 +2,7 @@
 $title = "Reservation page";
 include "header.php" ?>
 
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <!--Left side of the reservation page: info, buttons, photo etc.-->
     <div class="col-md-6">
@@ -26,7 +26,7 @@ include "header.php" ?>
     </div>
     <div class="col-md-6">
     <!--Right side of the reservation page: form-->
-      <div class="container">
+      <div class="container-fluid">
         <div class="row align-items-center">
           <div class="col-md-12">
             <br>
