@@ -2,7 +2,7 @@
 $title = "Reservation page";
 include "header.php" ?>
 
-<div class="container">
+<div class="container-fluid">
   <div class="row">
     <!--Left side of the reservation page: info, buttons, photo etc.-->
     <div class="col-md-6">
@@ -21,10 +21,12 @@ include "header.php" ?>
         style="font-size:18px;"></i></a> <br><br>
       <img class="d-block w-100" src="../images/party.jpg" alt="Party Reservation"
       style="object-fit: contain; width: 100%; height: auto;"><br><br>
+      <img class="d-block w-100" src="../images/floorlayout.png" alt="Party Reservation"
+      style="object-fit: contain; width: 100%; height: auto;"><br><br>
     </div>
     <div class="col-md-6">
     <!--Right side of the reservation page: form-->
-      <div class="container">
+      <div class="container-fluid">
         <div class="row align-items-center">
           <div class="col-md-12">
             <br>
@@ -67,7 +69,7 @@ include "header.php" ?>
             <div class="col-md-6">
               <label for="selectTable" class="form-label">Please select a Table</label>
               <select class="form-control" id="selectTable" name="table_id"><br><br>
-                <option value="meeting_room_1">Meeting Room 1, good for up to 10 people</option>
+                <option value="meeting_room_1">Meeting Room, good for up to 10 people</option>
                 <option value="table_1">Table 1, good for 1 - 2 people </option>
                 <option value="table_2">Table 2, good for 1 - 2 people </option>
                 <option value="table_3">Table 3, good for 1 - 2 people </option>
@@ -138,7 +140,7 @@ include "header.php" ?>
 </div>
 
 <?php
-include 'reservez.time.php';
+include 'reservez.php';
 ?>
 
 <?php include "footer.php" ?>
