@@ -1,37 +1,6 @@
 <?php
-//this for starting the session 
-  session_start();
-if(isset($_POST['login']))
-{   
-    $password=$_POST['password'];
-    $email_address=$_POST['email_address'];
-    //extract($_POST);
-    include 'db.php';
-    //this is slect the row where username and password are the same as the one the user entered
-    
-    $sql=mysqli_query($conn,"SELECT email_address,password FROM aisha_customer");
-    $row = mysqli_fetch_assoc($sql);
-       if(in_array("$email_address",$row ) &&in_array("$password",$row)){
-           
-         echo"<a> href='userinfo.php'></a>";
-      }
-      else{
-        echo "Invalid Email Password";
-      }
-      
-    }
- 
-    else
-    {
-          echo "Invalid Email ID/Password";
-    }
-
-?>
-<?php
 $title = "AboutUs page";
 include "header.php" ?>
-
-
  <div class="text-center content-helper" style="width: 98%">
     <div class="container">
  <div class="row">
@@ -76,8 +45,8 @@ include "header.php" ?>
        there is anything we can do to make your visit more enjoyable. Thank you!</p2>
   </div>
   <div class="col-lg-6 mx-auto text-left" >
-    <form method="POST" action=" " id="loginform" onsubmit="return val()" action=" ">
-   <input type="email" id="email" name="email_address" placeholder="email address" class="form-control" required><br>
+  <form method="POST" action=" " id="loginform" onsubmit="return val()" action=" ">
+  <input type="email" id="email" name="email_address" placeholder="email address" class="form-control" ><br>
   <input type="password" id="pass" placeholder="Password" name="password" minlength="8" class="form-control" ><br>
   <input class="btn btn-primary" type="submit" value="Login" name="login">
   <a class="btn btn-primary" href="user.php" role="button">Sign up</a>
@@ -87,27 +56,20 @@ include "header.php" ?>
 </div>
 </div>
 </div>
-<?php
-/*if(isset($_POST['login']))
-{    
-    $password=$_POST['password'];
-    $email_address=$_POST['email_address'];
-    include 'db.php';
-    //this is slect the row where username and password are the same as the one the user entered
-    $sql="SELECT * FROM aisha_customer where email_address='$email_address' && 'password'='$password' LIMIT 1";
-     $execute_sql=mysqli_query($conn,$sql);
-     if($execution_results=mysqli_num_rows($execute_sql))
-    {
-      echo "logged in successfully";
+<script>
+ function val(){
+     let email=document.getElementById('email').value;
+     let password=document.getElementById('pass').value;
+     if(email==null || email==""){
+        alert("Email can not be blank!");
+      }
+      if(password==null || password==""){
+       alert("password can not be blank!");
+        return false;
+      }
+     
     }
-    else{
-      echo"incorrect username and password"; 
-    }
-  
-    $conn->close();  
-}*/
-  
-?>
- 
+
+</script>
 <?php include "footer.php" ?>
 
