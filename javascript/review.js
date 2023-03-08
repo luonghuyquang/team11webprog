@@ -1,23 +1,4 @@
-
-function val() {
-  let username = document.loginform.username.value;
-  let password = document.loginform.pass.value;
-  if (username.length == null) {
-    if (password == null) {
-      alert("logged successfully!");
-      return false;
-    } else {
-      window.alert("Invalid username and password!");
-      return false;
-    }
-  }
-  else {
-    alert("Invalid username and password");
-    return true;
-  }
-}
-
-// javscript validation for rview
+// javscript validation for review
 
 function fnameVal() {
   let fname = (document.reviewForm.fname.value).trim();
@@ -37,7 +18,7 @@ function lnameVal() {
 
 }
 
-function reviewValidation() {
+function rateValidation() {
   let rate = (document.reviewForm.rate.value).trim();
   if (rate === '') {
     alert("Rate is required.");

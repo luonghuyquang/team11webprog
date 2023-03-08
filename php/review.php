@@ -15,7 +15,7 @@ echo
 </p>
 <div class="collapse" id="collapseExample">
 <div class="">
-<form class="row g-3 form-review" method="post" action="" name="reviewForm" onsubmit="return reviewValidation();">
+<form class="row g-3 form-review" method="post" action="" name="reviewForm" onsubmit="return rateValidation();">
 <div class="form-helper">
 <div class="d-flex justify-content-between align-items-center">
   <div class="ratings-selector"> 
