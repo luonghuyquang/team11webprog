@@ -1,8 +1,8 @@
 <?php
 $title = "Review page";
 include "header.php";
-include 'db2.php';
 
+// creating data
 echo
   '
   <div class ="container">
@@ -14,8 +14,8 @@ echo
   </button>
 </p>
 <div class="collapse" id="collapseExample">
-<div class=c"card card-body">
-<form class="row g-3 form-review" method="post" action="">
+<div class="">
+<form class="row g-3 form-review" method="post" action="" name="reviewForm" onsubmit="return rateValidation();">
 <div class="form-helper">
 <div class="d-flex justify-content-between align-items-center">
   <div class="ratings-selector"> 
@@ -27,15 +27,15 @@ echo
   </div>
 </div>
 </div>
-<input type="hidden" class="form-control" placeholder="rate" name="rate" required>
+<input type="hidden" class="form-control" name="rate" required>
 <div class="col-md-4">
-  <input type="text" class="form-control" placeholder="First Name" name="fname" required>
+  <input type="text" class="form-control" placeholder="First Name" name="fname" required onblur="fnameVal()">
 </div>
 <div class="col-md-4">
-  <input type="text" class="form-control" placeholder="Last Name " name="lname" required>
+  <input type="text" class="form-control" placeholder="Last Name" name="lname" required onblur="lnameVal()">
 </div>
 <div class="col-md-4">
-  <input type="text" class="form-control" placeholder="E-mail " name="email" required>
+  <input type="text" class="form-control" placeholder="E-mail" name="email_address" required>
 </div>
 <div class="col-12">
     <textarea class="form-control" placeholder="Describe your experience.." name="review" rows="3"></textarea>
@@ -49,54 +49,58 @@ echo
 </div>
 ';
 
-
-
 if (isset($_POST['submit'])) {
   $fname = $_POST['fname'];
   $lname = $_POST['lname'];
-  $email = $_POST['email'];
+  $email = $_POST['email_address'];
   $review = $_POST['review'];
   $datetime = date("Y-m-d H:i:s");
   $rate = $_POST['rate'];
 
-  include 'db2.php';
-  $sql = "insert into shreya_review(fname,lname,email,review,datetime,rate) values('$fname', '$lname','$email','$review', '$datetime' ,'$rate')";
+  include 'db.php';
+  $sql = "insert into shreya_review(fname,lname,email_address,review,date,rate) values('$fname', '$lname','$email','$review', '$datetime' ,'$rate')";
 
-  if ($conn->query($sql) == TRUE) {
+  if ($conn->query($sql) === TRUE) 
+  {
     echo "<div class='feedback-text'>Thank you for your feedback!</div>";
-  } else {
+  } 
+  else
+  {
     echo "<div class='feedback-text'>Error: " . $conn->error . "</div>";
   }
 }
 
 
 echo '
-  <p class="mb-4 pb-2 mb-md-5 pb-md-0">
-  </p>
+ <p class="mb-4 pb-2 mb-md-5 pb-md-0">
+</p>
 </div>
 </div>
 ';
 
-$sql = "select * from shreya_review ORDER BY customerid DESC; ";
+//Reading data
+
+include 'db.php';
+$sql = "select * from shreya_review ORDER BY reviewid DESC; ";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-  echo " <section>
-  <div class ='container'>
-<div class='row text-center d-flex align-items-stretch' >";
+  
+echo ' <section>
+  <div class ="container">
+  <div class="row text-center d-flex align-items-stretch" >';
 
   while ($row = $result->fetch_assoc()) {
-    echo " 
-
-<div class='col-md-4 mb-5 mb-md-0 d-flex align-items-stretch' style = 'padding-bottom:20px';>
-  <div class='card testimonial-card' style='width: 470px;'>
+    echo "
+    <div class='col-md-4 mb-5 mb-md-0 d-flex align-items-stretch' style = 'padding-bottom:20px';>
+    <div class='card testimonial-card' style='width: 470px;'>
     <div class='avatar mx-auto'>
     <span id='firstName' class='d-none'>$row[fname]</span>
     <span id='lastName' class='d-none'>$row[lname]</span>
     <div id='profileImage'></div>
     </div>
     <div class='card-body'>
-      <span style ='font-size: 12px;'>$row[datetime]</span>
+      <span style ='font-size: 12px;'>$row[date]</span>
       <h4 style='font-weight: 750;'>$row[fname] $row[lname]</h4>
       ";
 
@@ -117,7 +121,7 @@ if ($result->num_rows > 0) {
         ratingFive();
         break;
     }
-    echo "  
+    echo "
       <hr />
       <p class='dark-grey-text mt-4' style ='font-size: 25px;'>
         <i class='fas fa-quote-left pe-2'></i>$row[review]
@@ -127,10 +131,10 @@ if ($result->num_rows > 0) {
 </div>";
 
   }
-  echo "
+  echo '
   </div>
 </div>
- </section> ";
+ </section> ';
 } else {
   echo "No Result";
 }
@@ -139,32 +143,32 @@ $conn->close();
 
 function ratingOne()
 {
-  echo " 
-  <div class='form-helper'>
-  <div class='d-flex justify-content-between align-items-center'>
-    <div class='ratings'>
-      <i class='fa fa-star fa-3x rating-color'></i>
-      <i class='fa fa-star fa-3x'></i>
-      <i class='fa fa-star fa-3x'></i>
-      <i class='fa fa-star fa-3x'></i>
-      <i class='fa fa-star fa-3x'></i>
+  echo ' 
+  <div class="form-helper">
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="ratings">
+      <i class="fa fa-star fa-3x rating-color"></i>
+      <i class="fa fa-star fa-3x"></i>
+      <i class="fa fa-star fa-3x"></i>
+      <i class="fa fa-star fa-3x"></i>
+      <i class="fa fa-star fa-3x"></i>
     </div>
   </div>
-  </div>";
+  </div>';
 }
 function ratingTwo()
 {
-  echo " <div class='form-helper'>
-  <div class='d-flex justify-content-between align-items-center'>
-    <div class='ratings'>
-      <i class='fa fa-star fa-3x rating-color'></i>
-      <i class='fa fa-star fa-3x rating-color'></i>
-      <i class='fa fa-star fa-3x'></i>
-      <i class='fa fa-star fa-3x'></i>
-      <i class='fa fa-star fa-3x'></i>
+  echo ' <div class="form-helper">
+  <div class="d-flex justify-content-between align-items-center">
+    <div class="ratings">
+      <i class="fa fa-star fa-3x rating-color"></i>
+      <i class="fa fa-star fa-3x rating-color"></i>
+      <i class="fa fa-star fa-3x"></i>
+      <i class="fa fa-star fa-3x"></i>
+      <i class="fa fa-star fa-3x"></i>
     </div>
   </div>
-  </div>";
+  </div>';
 }
 
 function ratingThree()

@@ -53,7 +53,7 @@
       document.documentElement.scrollTop = 0;
     }
   </script>
- <script src="../javascript/javascript.js"></script>
+ <script src="../javascript/review.js"></script>
 </head>
 
 <body>
