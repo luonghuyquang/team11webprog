@@ -78,10 +78,19 @@ $cart_count = count(array_keys($_SESSION["shopping_cart"]));
                 while($row = $result->fetch_assoc()) {
            ?>
             <div class="column1" >
-              <img id="img1" src="../images/<?php echo $row['item_image'];?>" alt="Lettuce salad" style="width:250px;height:200px">
-              <p style="font-size:20px;"><?php echo $row['item_name'];?><br>
-                                  Price : <?php echo $row['unit_price'];?><br>
-                                 <!-- Qty : <?php echo $row['quantity'];?> -->  </p>
+              <img id="img1" src="../images/<?php echo $row['item_image'];?>" alt="Lettuce salad">
+              <p>
+                <div style="font-family: 'Courgette', cursive; font-size: 16px;">
+                  <div  class="font_r" >
+                       <?php echo $row['item_name'];?> 
+                  </div>
+                  <div  class="font_r" >
+                      Price : <?php echo $row['unit_price'];?> 
+                  </div>
+                  
+                </div>
+                
+              </p>
               
 
               
