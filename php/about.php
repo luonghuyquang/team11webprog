@@ -45,10 +45,10 @@ include "header.php" ?>
        there is anything we can do to make your visit more enjoyable. Thank you!</p2>
   </div>
   <div class="col-lg-6 mx-auto text-left" >
-  <form method="POST" id="loginform" onsubmit="return val()" >
+  <form method="POST" action="" id="loginform">
   <input type="email" id="email" name="email_address" placeholder="email address" class="form-control" ><br>
   <input type="password" id="pass" placeholder="Password" name="password" minlength="8" class="form-control" ><br>
-  <input class="btn btn-primary" type="submit" value="Login" name="login">
+  <input class="btn btn-primary" type="submit" value="Login" name="login" onclick="return val()">
   <a class="btn btn-primary" href="user.php" role="button">Sign up</a>
  </form>
   </div>
@@ -61,14 +61,26 @@ include "header.php" ?>
      let email=document.getElementById('email').value;
      let password=document.getElementById('pass').value;
      if(email==null || email==""){ 
-      if(password==null || password==""){
+           if(password==null || password==""){
       window.alert("Neither the email nor password can be blank!");
       } 
-   }
-   else{
-       loginform.action="userinfo.php";
-       document.write("Email: "email);
-      }
+     }
+      if(!email==null || !email==""){ 
+           if(password==null || password==""){
+      window.alert("the password can't be blank!");
+      } 
+     }
+     if(email==null || email==""){ 
+           if(!password==null || !password==""){
+      window.alert("the email can't be blank!");
+      } 
+     }
+      if(!email==null || !email==""){ 
+           if(!password==null || !password==""){
+            document.getElementById("loginform").action = "userinfo.php";
+      } 
+     }
+    
  }
 </script>
 <?php include "footer.php" ?>

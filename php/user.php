@@ -23,13 +23,13 @@ include "header.php" ?>
   <label for="daily emails">i want to receive the daily emails</label><br>
   <input type="checkbox" name="member" value="1">
   <label for="membership"> I want to receive a customer membership</label><br>
-  <input class="btn btn-primary" type="submit" value="Submit" name="submit">
+  <input class="btn btn-primary" type="submit" value="Register" name="signin">
   </form>
   </div>
   </div>
   </div>
   <?php
- if(isset($_POST['submit'])){
+ if(isset($_POST['signin'])){
     $fname=$_POST['fname'];
     $lname=$_POST['lname'];  
     $password=$_POST['password'];
