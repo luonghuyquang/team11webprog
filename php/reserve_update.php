@@ -1,5 +1,5 @@
 <?php
-$title = "Management_Reservation";
+$title = "Delete a Reservation";
 include "header.php";
 
 $a = $_GET['id'];
