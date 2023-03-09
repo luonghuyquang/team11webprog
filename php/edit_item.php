@@ -98,7 +98,7 @@ if(isset($_POST['editbht'])){
                     <div class="col-md-6" style="padding-top: 5px;">
                         <div class="col-md-12">
                         <br><br>
-                            <button type="submit" class="btn11" style="padding-left: 25px;padding-right: 25px;" name="editbht"> EDit </button>
+                            <button type="submit" class="btn11" style="padding-left: 25px;padding-right: 25px;" name="editbht"> Edit </button>
                             
                         </div>
                             
