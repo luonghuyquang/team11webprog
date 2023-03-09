@@ -32,6 +32,7 @@ if(isset($_POST['update'])){
     $email_address=$_POST['email_address'];
     $phone_nbr=$_POST['phone_nbr'];
     $address=$_POST['address'];
+    $membershipid= uniqid();
     include "db.php";
     $sql=mysqli_query($conn,"UPDATE aisha_customer SET fname='$fname',lname='$lname',address='$address',password='$password',email_address='$email_address',phone_nbr='$phone_nbr' WHERE email_address='$var'");
     if($sql){
@@ -40,6 +41,13 @@ if(isset($_POST['update'])){
         else{
             echo"Your informations is not updated";
         }
+        if(empty($_POST['member'])){
+            echo"No membership id will be alocated";
+          }else{
+            $sql=mysqli_query($conn,"UPDATE aisha_customer SET membershipid='$membershipid' WHERE email_address='$var'");
+     
+           echo"membership id allocated";
+          }
 }
      ?>
 <?php

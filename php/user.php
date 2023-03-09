@@ -36,6 +36,7 @@ include "header.php" ?>
     $email_address=$_POST['email_address'];
     $phone_nbr=$_POST['phone_nbr'];
     $address=$_POST['address'];
+    $membershipid= uniqid();
     include"db.php";
     $sql="INSERT into aisha_customer(fname,lname,address,password,email_address,phone_nbr)
     VALUES ('$fname','$lname','$address','$password','$email_address','$phone_nbr')";
@@ -48,7 +49,8 @@ include "header.php" ?>
     if(empty($_POST['member'])){
       echo"No membership id will be alocated";
     }else{
-     
+      $sql="INSERT into aisha_customer(membershipid)
+      VALUES ('$membershipid')";
      echo"membership id allocated";
     }
   }
