@@ -28,7 +28,7 @@ if(isset($_POST['prcd_order'])){
 
 
 
-       $sqlproceed2 = "INSERT INTO rushani_order_items (item_name,quantity,unit_price,subtotal_amt,order_nbr) VALUES ('$itmname','$qty','$price','$subamt','$last_id')";
+       $sqlproceed2 = "INSERT INTO rushani_order_items (item_nbr,item_name,quantity,unit_price,subtotal_amt,order_nbr) VALUES ('$itmcode','$itmname','$qty','$price','$subamt','$last_id')";
          if($conn->query($sqlproceed2)){           
            header("location:print.php");
          }

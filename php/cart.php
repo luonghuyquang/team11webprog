@@ -3,11 +3,14 @@ session_start();
          $status="";
     if (isset($_POST['action']) && $_POST['action']=="remove")
     {
+        
         if(!empty($_SESSION["shopping_cart"])) 
         {
+           // print_r($_SESSION["shopping_cart"]);
             foreach($_SESSION["shopping_cart"] as $key => $value) 
             {
-                if($_POST["code"] == $key)
+                //print_r($value);
+                if($_POST["code"] ==$value["code"])
                 {
                     unset($_SESSION["shopping_cart"][$key]);
                     $status = "<div class='box' style='color:red;'>

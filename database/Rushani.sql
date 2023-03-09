@@ -171,3 +171,7 @@ ALTER TABLE `rushani_order_items`
 ALTER TABLE `rushani_order_items`
   ADD CONSTRAINT `rushani_order_items_ibfk_1` FOREIGN KEY (`order_nbr`) REFERENCES `rushani_order` (`order_nbr`);
 COMMIT;
+
+ALTER TABLE rushani_order_items ADD FOREIGN KEY (`item_name`) REFERENCES rushani_items (`item_name`);
+ALTER TABLE rushani_order ADD FOREIGN KEY (`username`) REFERENCES aisha_customer (`email_address`);
+
