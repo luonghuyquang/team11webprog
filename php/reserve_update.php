@@ -29,7 +29,7 @@ echo "<h2>Table: ".$row['table_id']."<br><br></h2>";
 </form>
 <?php
   if(isset($_POST['delete'])){
-    $query = mysqli_query($conn, "DELETE from quang_reservation where id='$a' ");
+    $query = mysqli_query($conn, "DELETE from quang_reservation where reservation_id='$a' ");
   if($query){
     echo "<h4>Record deleted</h4>";
   }
