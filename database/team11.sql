@@ -280,7 +280,7 @@ CREATE TABLE quang_tables (
   table_spec VARCHAR(60)
 );
 INSERT INTO quang_tables (table_id, seats, table_name, table_spec)
-VALUES ('meeting_room_1', 10, 'Meeting Room', 'Good for Business and Event'),
+VALUES ('meeting_room', 10, 'Meeting Room', 'Good for Business and Event'),
        ('table_1', 2, 'Table 1', 'Good for Thinkers'),
        ('table_2', 2, 'Table 2', 'Good for Friends'),
        ('table_3', 2, 'Table 3', 'Good for Dating'),

@@ -98,7 +98,7 @@ CREATE TABLE quang_reservation (
   cust_name VARCHAR(30) NOT NULL,
   phone_nbr VARCHAR(20) NOT NULL,
   cust_email VARCHAR(60) NOT NULL,
-  FOREIGN KEY (cust_email) REFERENCES aisha_customer(email_address),
+  FOREIGN KEY (cust_email) REFERENCES aisha_customer(`email`),
   start_datetime DATETIME,
   end_datetime DATETIME,
   nbr_of_guests INT NOT NULL,
