@@ -1,6 +1,7 @@
 <?php
 session_start();
          $status="";
+         // Items remove code 
     if (isset($_POST['action']) && $_POST['action']=="remove")
     {
         
@@ -22,6 +23,7 @@ session_start();
         }
     }
 
+    // data rettriew  from menu page by session
     if (isset($_POST['action']) && $_POST['action']=="change")
     {
         foreach($_SESSION["shopping_cart"] as &$value)
@@ -36,6 +38,7 @@ session_start();
     }
 ?>
 
+<!-- cart empty code..
 <?php
     if(!empty($_SESSION["shopping_cart"]))
      {
@@ -77,6 +80,7 @@ session_start();
       </tr> 
 <?php   
 
+// load data to cart page from menu page
     foreach ($_SESSION["shopping_cart"] as $product)
     {
 ?>
