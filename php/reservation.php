@@ -37,7 +37,7 @@ include "header.php" ?>
             <br>Opening time: 10:00 - 22:00 Mon - Sun
             <br>Reservation at least 24 hours before and within 4 weeks to the event
             <br>Duration of a reservation: min 30 min - max 3 hours
-            <br>Please note your reservation code
+            <br>
             </h5>
             <form class="row g-3" name="reservation form" method="POST" action = "">
             <div class="col-md-6">
