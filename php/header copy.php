@@ -58,7 +58,7 @@
       document.documentElement.scrollTop = 0;
     }
   </script>
- <script src="../javascript/review.js"></script>
+ <script src="../javascript/javascript.js"></script>
 </head>
 
 <body>
@@ -92,7 +92,7 @@
                 <a class="nav-link" href="#CU">Contact</a>
               </li>
               <li class="nav-item">
-                <a <?php if(basename($_SERVER['PHP_SELF']) == 'about.php' ||basename($_SERVER['PHP_SELF']) == 'user.php'||basename($_SERVER['PHP_SELF']) == 'userinfo.php'||basename($_SERVER['PHP_SELF']) == 'userupdate.php' ){echo 'class="nav-link active"';} else {echo 'class="nav-link"';} ?> href="about.php">About</a>
+                <a <?php if(basename($_SERVER['PHP_SELF']) == 'about.php'){echo 'class="nav-link active"';} else {echo 'class="nav-link"';} ?> href="about.php">About</a>
               </li>
             </ul>
           </div>
