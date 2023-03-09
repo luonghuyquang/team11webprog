@@ -77,6 +77,8 @@
       $('.feedback-text').hide();
     });
 
+  // getting initials for testimonial card for review
+
     $('.testimonial-card').each(function () {
       var firstName = $(this).find('#firstName').text();
       var lastName = $(this).find('#lastName').text();
