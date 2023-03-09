@@ -38,7 +38,7 @@ echo
   <input type="text" class="form-control" placeholder="E-mail" name="email_address" required>
 </div>
 <div class="col-12">
-    <textarea class="form-control" placeholder="Describe your experience.." name="review" rows="3"></textarea>
+    <textarea class="form-control" placeholder="Describe your experience.." name="review" rows="3" maxlength="250"></textarea>
 </div>
 <div class="col-6 d-grid gap-2 mx-auto mb-3">
   <button class="btn btn-primary custom" type="submit" name="submit">Submit your review</button>
