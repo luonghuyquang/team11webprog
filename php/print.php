@@ -72,6 +72,7 @@ body{
 
 </div>
 
+<!-- customer Details -->
 <div id="section">
 <h1>Customer Details </h1>
 <table border="0" width="400" >
@@ -103,6 +104,7 @@ body{
 <br>
 
 
+<!-- order Details -->
 
 <table class="table" width="700">
     <tbody>
