@@ -2,7 +2,7 @@
 session_start();
 include "db.php";
 $status = "";
-if (isset($_POST['code']) && $_POST['code']!="")
+if (isset($_POST['code']) && $_POST['code'] != "")
 {
 $code = $_POST['code'];
 $itmname = $_POST['itmname'];
@@ -21,11 +21,24 @@ $cartArray = array(
 if(empty($_SESSION["shopping_cart"])) {
     $_SESSION["shopping_cart"] = $cartArray;
     $status = "<div class='box'>Product is added to your cart!</div>";
+
+    // java Script Message for Product is Added....
+
+    echo "<script>
+           window.alert('Product is added to your cart!'); 
+          </script>";
 }else{
     $array_keys = array_keys($_SESSION["shopping_cart"]);
     if(in_array($code,$array_keys)) {
   $status = "<div class='box' style='color:red;'>
-  Product is already added to your cart!</div>";  
+  Product is already added to your cart!</div>"; 
+  
+    // java Script Message for Product is Already Added....
+  
+  echo "<script> 
+        window.alert('Product is already added to your cart!'); 
+        </script>";
+
     } 
     else {
     $_SESSION["shopping_cart"] = array_merge(
@@ -33,6 +46,13 @@ if(empty($_SESSION["shopping_cart"])) {
     $cartArray
     );
     $status = "<div class='box'>Product is added to your cart!</div>";
+
+    // java Script Message for Product is Added....
+
+    echo "<script> 
+          window.alert('Product is added to your cart!'); 
+          </script>";
+
   }
 
   }
