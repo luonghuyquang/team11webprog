@@ -2,6 +2,8 @@
 session_start();
 include "db.php";
 $status = "";
+
+// add cart array code
 if (isset($_POST['code']) && $_POST['code'] != "")
 {
 $code = $_POST['code'];
@@ -18,6 +20,7 @@ $cartArray = array(
   )
 );
 
+// message for add cart
 if(empty($_SESSION["shopping_cart"])) {
     $_SESSION["shopping_cart"] = $cartArray;
     $status = "<div class='box'>Product is added to your cart!</div>";
@@ -68,7 +71,7 @@ $cart_count = count(array_keys($_SESSION["shopping_cart"]));
 ?>
 
 <?php
-    $title = "Cart page";
+    $title = "Menu page";
     include "header.php";
  ?>
    <!--End of Header part-->
@@ -88,7 +91,11 @@ $cart_count = count(array_keys($_SESSION["shopping_cart"]));
           <div class="col-md-2"></div>
           <div class="col-md-8">
           <br>
+
+          <!-- Cart Button -->
       <button type="button"  class="btn btn-success"><a href="cart.php" class="nav-link">Cart (<?php echo $cart_count; ?>)</a></button>
+
+      <!-- load Items to the menu page from rushani_items table -->
           <div class="row1" >
            <?php 
             $sql = "SELECT * FROM rushani_items WHERE item_status=1";
@@ -97,6 +104,7 @@ $cart_count = count(array_keys($_SESSION["shopping_cart"]));
                 // output data of each row
                 while($row = $result->fetch_assoc()) {
            ?>
+
             <div class="column1" >
               <img id="img1" src="../images/<?php echo $row['item_image'];?>" alt="Lettuce salad">
               <p>
@@ -138,7 +146,7 @@ $cart_count = count(array_keys($_SESSION["shopping_cart"]));
         
 
           <div class="message_box" style="margin:10px 0px;">
-          <?php echo $status; ?>
+          <?php // echo $status; ?>
           </div>
           
 

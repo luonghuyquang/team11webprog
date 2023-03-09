@@ -1,6 +1,7 @@
 <?php
 session_start();
 include "db.php";
+// to put data into database 
 if(isset($_POST['prcd_order'])){
   $username = $_POST['username'];
   $address = $_POST['address'];
@@ -8,7 +9,8 @@ if(isset($_POST['prcd_order'])){
   $types = $_POST['type'];
   $gttl = $_GET['tprice'];
   $order_time = date("Y-m-d h:i:s");
-  
+
+  // to put data into rushani_order  
   $sqlproceed = "INSERT INTO rushani_order (order_time,username,address,phone_nbr,order_type,total_amt) VALUES ('$order_time','$username','$address','$phone','$types','$gttl')";
   if($conn->query($sqlproceed)){
     $last_id = $conn->insert_id;
@@ -27,7 +29,7 @@ if(isset($_POST['prcd_order'])){
         $_SESSION['order_time'] = $order_time;
 
 
-
+      // to put data into rushani_order_items
        $sqlproceed2 = "INSERT INTO rushani_order_items (item_nbr,item_name,quantity,unit_price,subtotal_amt,order_nbr) VALUES ('$itmcode','$itmname','$qty','$price','$subamt','$last_id')";
          if($conn->query($sqlproceed2)){           
            header("location:print.php");
