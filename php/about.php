@@ -51,6 +51,8 @@ include "header.php" ?>
   <input class="btn btn-primary" type="submit" value="Login" name="login" onclick="return val()">
   <a class="btn btn-primary" href="user.php" role="button">Sign up</a>
  </form>
+ <br>
+ <h6> <a href="admin.php" style="color: black;"> Admin Login </a> </h6>
   </div>
  </div>
 </div>
